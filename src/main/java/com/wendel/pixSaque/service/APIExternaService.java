@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
 public class APIExternaService {
 
     @Autowired
-    private TaxadeJurosClient taxadeJurosClient;
+    private TaxadeJurosClient service;
     @Autowired
     private PixSaqueRepository repository;
 
     public ClientDTO salvarDados() {
-        ClientDTO dto = taxadeJurosClient.getData();
+        ClientDTO dto = service.getData();
         repository.saveAll(dto.getValue());
         return dto;
     }
