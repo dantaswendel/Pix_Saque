@@ -10,12 +10,12 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @Service
-public class PixSaqueService {
+public class PixSaqueServiceImpl {
 
     @Autowired
     private PixSaqueRepository repository;
 
-    public PixSaqueService (PixSaqueRepository pixSaqueRepository){
+    public PixSaqueServiceImpl(PixSaqueRepository pixSaqueRepository){
         this.repository =pixSaqueRepository;
     }
 
@@ -24,6 +24,7 @@ public class PixSaqueService {
 
     @Transactional
     public PixSaque salvar (PixSaque pixSaque){
+
         return  repository.save(pixSaque);
     }
 
@@ -45,6 +46,15 @@ public class PixSaqueService {
                 throw new RuntimeException();
             }
             repository.deleteById(id);
+        }
+
+        public PixSaque  atualizar(Long id, PixSaque pixSaque){
+
+            if (!repository.existsById(id)) {
+                throw new RuntimeException();
+        }
+        pixSaque.setId(id);
+            return repository.save(pixSaque);
         }
 
 }

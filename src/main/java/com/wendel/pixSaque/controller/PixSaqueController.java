@@ -1,7 +1,7 @@
 package com.wendel.pixSaque.controller;
 
 import com.wendel.pixSaque.entity.PixSaque;
-import com.wendel.pixSaque.service.PixSaqueService;
+import com.wendel.pixSaque.service.PixSaqueServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +13,7 @@ import java.util.List;
 public class PixSaqueController {
 
     @Autowired
-    PixSaqueService service;
+    PixSaqueServiceImpl service;
 
     @GetMapping
     public List<PixSaque> mostrarTodos(){
@@ -36,8 +36,10 @@ public class PixSaqueController {
         service.deletar(id);
     }
 
-    @PutMapping(path = "/atualizar")
-    public PixSaque atualizar(@RequestBody PixSaque pixSaque){
-        return  service.salvar(pixSaque);
+    @PutMapping(path = "/{id}")
+
+    public PixSaque atualizar(@PathVariable("id") Long id, @RequestBody PixSaque pixSaque){
+
+        return service.atualizar(pixSaque.getId(), pixSaque);
     }
 }
