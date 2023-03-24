@@ -4,6 +4,9 @@ import com.wendel.pixSaque.entity.PixSaque;
 import com.wendel.pixSaque.request.PixSaqueRequest;
 import com.wendel.pixSaque.response.PixSaqueResponse;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PixSaqueMapper {
 
     public  static PixSaque toPixSaque (PixSaqueRequest request){
@@ -29,6 +32,15 @@ public class PixSaqueMapper {
 
         return response;
 
+    }
+
+    public static List<PixSaqueResponse> toPixSaqueResponseList(List<PixSaque> pixSaques){
+
+        List<PixSaqueResponse> responses = new ArrayList<>();
+        for ( PixSaque pixSaque:pixSaques){
+            responses.add(toPixSaqueResponse(pixSaque));
+        }
+        return responses;
     }
 
 }
