@@ -13,6 +13,13 @@ import javax.persistence.Column;
 public class PixSaqueRequest {
 
     @Column
+    @JsonProperty("Api")
+    public String api;
+    @Column
+    @JsonProperty("Versao")
+    public String versao;
+
+    @Column
     @JsonProperty("CnpjInstituicao")
     public String cnpjInstituicao;
 
@@ -25,9 +32,16 @@ public class PixSaqueRequest {
     @Column
     @JsonProperty("EmailContato")
     public String emailContato;
-
+    @Column
+    @JsonProperty("Recurso")
+    public String recurso;
+    @Column
+    @JsonProperty("Situacao")
+    public String situacao;
     @Column
     @JsonProperty("URLDados")
     public String uRLDados;
-
+    @Column
+    @JsonProperty("URLConsulta")
+    public String uRLConsulta;
 }

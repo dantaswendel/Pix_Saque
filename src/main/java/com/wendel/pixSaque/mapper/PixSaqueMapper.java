@@ -12,11 +12,17 @@ public class PixSaqueMapper {
     public  static PixSaque toPixSaque (PixSaqueRequest request){
 
         PixSaque pixSaque = new PixSaque();
+        
         pixSaque.setNomeInstituicao(request.nomeInstituicao);
         pixSaque.setCnpjInstituicao(request.cnpjInstituicao);
         pixSaque.setNomeContato(request.nomeContato);
         pixSaque.setEmailContato(request.emailContato);
         pixSaque.setURLDados(request.uRLDados);
+        pixSaque.setApi(request.api);
+        pixSaque.setRecurso(request.recurso);
+        pixSaque.setURLConsulta(request.uRLConsulta);
+        pixSaque.setSituacao(request.situacao);
+        pixSaque.setVersao(request.versao);
 
         return pixSaque;
     }
